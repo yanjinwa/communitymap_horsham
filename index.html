@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Horsham Community Map</title>
+         <p><font size="+5">These are series of maps about Victorian Heavy Vehicle Routes,</p> 
+<p>Strategic Local Roads of Horsham and Various assets information</font> </p>
+   </head>	
+   <body>
+      <h1>The following is the Heavy Vehicle Route Map of Victoria</h1>
+      <p>This map provides interactive informations that you need to know if you are trying to plan truck route trip. It details about various roads with information on</p> 
+      <p>what vehicle are allowed. It also provides information about restricted bridges and capacities</p>
+ <p>This map is created using Azure PostgreSQL and CARTO. The widgets on the right side will also provide information about how many m of roads are restricted or 
+conditionally apporved for a given truck</p>
+   </body>
+
+<iframe width="1280px" height="900px" src="https://gcp-australia-southeast1.app.carto.com/map/967d39a9-0cc1-4cec-8edd-6ac78c2eacf9"></iframe>
+
+
+
+<body>
+      <h1>The following map shows the Transport assets of Horsham and Strategic Future Frieght Route</h1>
+      <p>This map details all roads of Horsham local government area.There are over 3000 km of roads in Horsham; out of which there are some roads which works as strategic route</p>
+ <p>which council is working to widen or strengthen over next 5-20 years.	These roads are key routes that helps to connect farm produces, dairy or meat products to nearest</p> 
+<p>intermodal hubs or silo. These maps were produced by Council in conjuction with 5 neighbouring council and local community</p>
+<p>The widget on the right side of the map provides insight about various information about length of roads in different hierarcy and surface types</p>
+   </body>
+
+<iframe width="1280px" height="900px" src="https://gcp-australia-southeast1.app.carto.com/map/5ed2716d-bf79-41da-9544-e7a4eb5293b6"></iframe>
+
+<body>
+      <h1>The following map shows miscellaneous assets and services at Horsham LGA</h1>
+      <p>Horsham Council is looking to find road making materials closeby to enable economically management of road assets of Horsham. Some potential gravel pit sites has been</p>
+<p> displayed. Also, all kerb are mapped this will help council to look into what area of roads doesn't have kerb at present. There are several drinking fountains around the</p>
+<p>municipality. These drinking fountain map will help community to quickly and conveniently access these facilities</p>
+<p>The widget on the right side of the map provides insight about numbers of services or sites</p>
+   </body>
+
+<iframe width="1280px" height="720px" src="https://gcp-australia-southeast1.app.carto.com/map/6bf1b1e7-da38-4eb9-bece-a903df02817a"></iframe>
+
+
+<body>
+      <h1>The following is the building map of Horsham</h1>
+      <p>Hover over the map to get the details.This map is created using QGIS2Web and hosted via Github</p>
+ <p> There are several buildings and facilities to sever the community and winder Wimmera Malee region. However, not all buildings are council's. From the community</p>
+<p> perspective though, all buildings belongs to council.This map is created with aim to let community know all buildings or facilities that Horsham Council has responsbility</p>
+<p> on. This reduces many customer calls from user groups to council. It is also useful for new users to know where these facilities are located.</p>
+   </body>
+
+<iframe width="1280px" height="720px" src="https://yanjinwa.github.io/TestMap2"></iframe>
+
+
+<body>
+      <h1>The following is the Capital works program of Horsham for 21-22 financial year</h1>
+      <p>Currently, council is using Pozi Pty Ltd to publish various community related information to community</p>
+ <p> The aim of the following web map is to inform the community where council is spending it's capital budget. This gives  visibility and tranparency about what</p>
+ <p>is going to happen on various assets and services</p>
+   </body>
+
+<iframe width="1280px" height="720px" src="https://horsham.pozi.com/#/x[142.20424]/y[-36.71736]/z[16]/feature[capitalworks202122,41]/layers[capitalworks202122]/tab[info]/"></iframe>
+
+
+<p>Thank you for visiting this GIS Web App. Please provide your feedback to improve this app</p>
+
+<?php
+$action=$_REQUEST['action'];
+if ($action=="")    /* display the contact form */
+    {
+    ?>
+    <form  action="" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="action" value="submit">
+    Your name:<br>
+    <input name="name" type="text" value="" size="30"/><br>
+    Your email:<br>
+    <input name="email" type="text" value="" size="30"/><br>
+    Your message:<br>
+    <textarea name="message" rows="7" cols="30"></textarea><br>
+    <input type="submit" value="Send email"/>
+    </form>
+    <?php
+    } 
+else                /* send the submitted data */
+    {
+    $name=$_REQUEST['name'];
+    $email=$_REQUEST['email'];
+    $message=$_REQUEST['message'];
+    if (($name=="")||($email=="")||($message==""))
+        {
+        echo "All fields are required, please fill <a href=\"\">the form</a> again.";
+        }
+    else{        
+        $from="From: $name<$email>\r\nReturn-path: $email";
+        $subject="Message sent using your contact form";
+        mail("youremail@yoursite.com", $subject, $message, $from);
+        echo "Email sent!";
+        }
+    }  
+?>
+
+
+	
+</html>
+
+
+
+
+
